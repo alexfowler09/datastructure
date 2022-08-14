@@ -12,6 +12,7 @@ namespace SortAlgorithms
             {
                 SortAlgorithmType.BUBBLE_SORT => new BubbleSort(),
                 SortAlgorithmType.INSERTION_SORT => new InsertionSort(),
+                SortAlgorithmType.SELECTION_SORT => new SelectionSort(),
                 _ => new BubbleSort(),
             };
         }

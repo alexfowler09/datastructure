@@ -14,6 +14,8 @@ namespace DataStructure.Tests.SortAlgorithms.Builders
             {
                 { SortAlgorithmType.INSERTION_SORT, typeof(InsertionSort) },
                 { SortAlgorithmType.BUBBLE_SORT, typeof(BubbleSort) },
+                { SortAlgorithmType.SELECTION_SORT, typeof (SelectionSort) },
+                { SortAlgorithmType.SHELL_SORT, typeof (ShellSort) },
                 { (SortAlgorithmType)(-1), typeof(BubbleSort) },
             };
 

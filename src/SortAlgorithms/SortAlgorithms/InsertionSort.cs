@@ -5,11 +5,12 @@ namespace SortAlgorithms.SortAlgorithms
     public class InsertionSort : ISortAlgorithm
     {
         /// <summary>
-        /// 
+        /// Select one element at a time from the left of the array
+        /// Insert the element at proper position
+        /// After insertion every element to its left will be sorted
         /// Complexity: O(n2)
         /// Swapping: O(n2)
-        /// Stable Algorithm
-        /// 
+        /// Stable Algorithm 
         /// </summary>
         /// <param name="array">Array to be sorted</param>
         public void Sort(int[] array)
