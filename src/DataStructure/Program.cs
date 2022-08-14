@@ -6,7 +6,8 @@ using SortAlgorithms.Extensions;
 
 int[] array = new int[] { 5, 5, 3, 2, 10, 25, 8, 7 };
 
-array.SortByAlgorithm(SortAlgorithmType.BUBBLE_SORT);
+array.SortByAlgorithm(SortAlgorithmBuilder
+    .CreateSortAlgorithm(SortAlgorithmType.BUBBLE_SORT));
 
 for (int i = 0; i < array.Length; i++)
     Console.Write($"{array[i]} ");
