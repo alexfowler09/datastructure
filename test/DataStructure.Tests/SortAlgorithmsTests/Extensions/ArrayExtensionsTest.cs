@@ -5,7 +5,7 @@ using SortAlgorithms.Interfaces;
 using System;
 using Xunit;
 
-namespace DataStructure.Tests.Extensions
+namespace DataStructure.Tests.SortAlgorithmsTests.Extensions
 {
     public class ArrayExtensionsTest
     {

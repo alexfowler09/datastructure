@@ -5,7 +5,7 @@ using SortAlgorithms.SortAlgorithms;
 using System;
 using Xunit;
 
-namespace DataStructure.Tests.SortAlgorithms.Builders
+namespace DataStructure.Tests.SortAlgorithmsTests.Builders
 {
     public class SortAlgorithmBuilderTest
     {

@@ -13,6 +13,8 @@ namespace SortAlgorithms
                 SortAlgorithmType.BUBBLE_SORT => new BubbleSort(),
                 SortAlgorithmType.INSERTION_SORT => new InsertionSort(),
                 SortAlgorithmType.SELECTION_SORT => new SelectionSort(),
+                SortAlgorithmType.SHELL_SORT => new ShellSort(),
+                SortAlgorithmType.MERGE_SORT => new MergeSort(),                
                 _ => new BubbleSort(),
             };
         }
