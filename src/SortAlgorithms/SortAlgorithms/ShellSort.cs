@@ -8,7 +8,11 @@ namespace SortAlgorithms.SortAlgorithms
         /// Selects an element and compare element after gap
         /// Similar to insertion sort
         /// Inserted element from the gap at its proper position
-        /// Complexity: O(n log(n))     
+        /// Complexity best case: O(n log n)
+        /// Complexity average case: O(n log n)
+        /// Complexity worst case: O(n²)
+        /// Space: O(1)        
+        /// Stable: no    
         /// </summary>
         /// <param name="array"></param>
         public void Sort(int[] array)

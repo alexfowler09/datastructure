@@ -6,9 +6,11 @@ namespace SortAlgorithms.SortAlgorithms
     {
         /// <summary>
         /// Select the minimium element of the array and place in appropiate position
-        /// Complexity: O(n2)
-        /// Swapping: O(n)
-        /// Unstable Algorithm
+        /// Complexity best case: O(n²)
+        /// Complexity average case: O(n²)
+        /// Complexity worst case: O(n²)
+        /// Space: O(1)        
+        /// Stable: no
         /// </summary>
         /// <param name="array"></param>
         public void Sort(int[] array)

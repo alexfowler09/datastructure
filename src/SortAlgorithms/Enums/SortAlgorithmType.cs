@@ -6,6 +6,7 @@
         BUBBLE_SORT,
         INSERTION_SORT,
         SHELL_SORT,
-        MERGE_SORT
+        MERGE_SORT,
+        QUICK_SORT
     }
 }

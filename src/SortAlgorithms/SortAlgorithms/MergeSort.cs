@@ -10,7 +10,11 @@ namespace SortAlgorithms.SortAlgorithms
         /// Recursively sort the subsets
         /// Combine or merge the result into a solution
         /// Divide and conquer approach
-        /// Complexity: O(n logn)
+        /// Complexity best case: O(n log n)
+        /// Complexity average case: O(n log n)
+        /// Complexity worst case: O(n log n)
+        /// Space: O(n)        
+        /// Stable: yes  
         /// </summary>
         /// <param name="array">Array to be sorted</param>
         public void Sort(int[] array)
@@ -29,24 +33,24 @@ namespace SortAlgorithms.SortAlgorithms
             }
         }
 
-        private void Merge(int[] originalArray, int left, int right, int middle)
+        private void Merge(int[] array, int left, int right, int middle)
         {
             int i = left;
             int j = middle + 1;
             int k = left;
 
-            int[] sortedArray = new int[originalArray.Length];
+            int[] sortedArray = new int[array.Length];
 
             while (i <= middle && j <= right)
             {
-                if (originalArray[i] < originalArray[j])
+                if (array[i] < array[j])
                 {
-                    sortedArray[k] = originalArray[i];
+                    sortedArray[k] = array[i];
                     i++;
                 }
                 else
                 {
-                    sortedArray[k] = originalArray[j];
+                    sortedArray[k] = array[j];
                     j++;
                 }
                 k++;
@@ -54,20 +58,20 @@ namespace SortAlgorithms.SortAlgorithms
 
             while (i <= middle)
             {
-                sortedArray[k] = originalArray[i];
+                sortedArray[k] = array[i];
                 i++;
                 k++;
             }
 
             while (j <= right)
             {
-                sortedArray[k] = originalArray[j];
+                sortedArray[k] = array[j];
                 j++;
                 k++;
             }            
 
             for (int x = left; x < right + 1; x++)
-                originalArray[x] = sortedArray[x];
+                array[x] = sortedArray[x];
         }
     }
 }
