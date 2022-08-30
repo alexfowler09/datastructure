@@ -23,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\Lists\Lists.csproj" />
     <ProjectReference Include="..\..\src\SortAlgorithms\SortAlgorithms.csproj" />
   </ItemGroup>
 
