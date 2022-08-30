@@ -7,12 +7,18 @@ namespace DataStructure.Tests.ListTests
 {
     public class LinkedListGetNodeTest
     {
+        private readonly LinkedList<int> linkedList;
+
+        public LinkedListGetNodeTest()
+        {
+            linkedList = new LinkedList<int>();
+        }
+
         [Fact]
         public void GetNode_GetFirstElementWhenListContainsOnlyOneElement_ReturnsElement()
         {
-            // arrange
-            var linkedList = new LinkedList<int>();
-            linkedList.AddLeading(10);
+            // arrange            
+            linkedList.Add(10);
 
             // act
             var node = linkedList.GetNode(0);
@@ -25,11 +31,10 @@ namespace DataStructure.Tests.ListTests
         [Fact]
         public void GetNode_GetLastElementWhenListContainsMoreThanOneELement_ReturnsElement()
         {
-            // arrange
-            var linkedList = new LinkedList<int>();
-            linkedList.AddLeading(10);
-            linkedList.AddLast(20);
-            linkedList.AddLast(30);
+            // arrange            
+            linkedList.Add(10);
+            linkedList.Add(20);
+            linkedList.Add(30);
 
             // act
             var node = linkedList.GetNode(2);
@@ -42,11 +47,10 @@ namespace DataStructure.Tests.ListTests
         [Fact]
         public void GetNode_GetElementButFirstOrLast_ReturnsElement()
         {
-            // arrange
-            var linkedList = new LinkedList<int>();
-            linkedList.AddLeading(10);
-            linkedList.AddLast(20);
-            linkedList.AddLast(30);
+            // arrange            
+            linkedList.Add(10);
+            linkedList.Add(20);
+            linkedList.Add(30);
 
             // act
             var node = linkedList.GetNode(1);
@@ -61,9 +65,6 @@ namespace DataStructure.Tests.ListTests
         [InlineData(1)]
         public void GetNode_WhenListHasNotElements_ThrowsIndexOutOfRangeException(int position)
         {
-            // arrange
-            var linkedList = new LinkedList<int>();
-
             // act
             Action act = () => linkedList.GetNode(position);
 
@@ -75,10 +76,9 @@ namespace DataStructure.Tests.ListTests
         public void GetNode_WhenListHasElementsButIndexIsOutOfRange_ThrowsIndexOutOfRangeException()
         { 
             // arrange
-            var linkedList = new LinkedList<int>();
-            linkedList.AddLeading(10);
-            linkedList.AddLast(20);
-            linkedList.AddLast(30);
+            linkedList.Add(10);
+            linkedList.Add(20);
+            linkedList.Add(30);
 
             // act
             Action act = () => linkedList.GetNode(3);

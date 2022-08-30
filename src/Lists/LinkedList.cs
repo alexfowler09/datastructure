@@ -3,29 +3,28 @@
     public class LinkedList<T> 
         where T : struct
     {
-        private Node<T>? head = null;
-        private Node<T>? tail = null;
+        public Node<T>? Head { get; private set; } = null;
+        public Node<T>? Tail { get; private set; } = null;
 
         public int Lenght { get; private set; }        
 
         public LinkedList()
         {
-
         }
 
         public bool IsEmpty() =>
-            Lenght == 0;
+            Lenght == 0 && Head == null && Tail == null;
 
-        public void AddLast(T element) 
+        public void Add(T element) 
         {
             var node = new Node<T>(element, null);
             
             if (IsEmpty())
-                head = node;
+                Head = node;
             else
-                tail!.Next = node;
+                Tail!.Next = node;
             
-            tail = node;
+            Tail = node;
             Lenght++;
         }
 
@@ -34,31 +33,42 @@
             var node = new Node<T>(element, null);
 
             if (IsEmpty())
-                tail = node;            
+                Tail = node;            
             else            
-                node.Next = head;
+                node.Next = Head;
 
-            head = node;
+            Head = node;
             Lenght++;
         }
 
-        public void AddElement(T element, int position)
+        public void Add(T element, int position)
         {
             if (position > (Lenght - 1))
                 throw new IndexOutOfRangeException();
+
+            var itsLastPosition = position == (Lenght - 1);
 
             var newNode = new Node<T>(element, null);
 
             Node<T> nodeBeforePosition;
 
-            if (Lenght == 1)
+            if (position == 0)
+            {
                 nodeBeforePosition = GetNode(0);
+                newNode.Next = nodeBeforePosition;
+                Head = newNode;
+            }
             else
+            {
                 nodeBeforePosition = GetNode(position - 1);
-
-            newNode.Next = nodeBeforePosition.Next;
-            nodeBeforePosition.Next = newNode;
+                newNode.Next = nodeBeforePosition.Next;
+                nodeBeforePosition.Next = newNode;
+            }
+     
             Lenght++;
+
+            if (itsLastPosition)
+                Tail = newNode.Next;
         }
 
         public Node<T> GetNode(int position)
@@ -66,7 +76,7 @@
             if (position > (Lenght - 1))
                 throw new IndexOutOfRangeException();
 
-            Node<T> node = head!;
+            Node<T> node = Head!;
 
             int i = 0;            
             while (i < position)
@@ -78,9 +88,41 @@
             return node;
         }
 
+        public void Remove(int position)
+        {
+            if (IsEmpty() || (position > (Lenght -1)))
+                throw new IndexOutOfRangeException();
+
+            var nodeToDelete = GetNode(position);            
+            
+            if (position > 0)
+            {
+                var nodeBeforePosition = GetNode(position - 1);
+                nodeBeforePosition.Next = nodeToDelete.Next;                
+
+                if (Tail == nodeToDelete)                
+                    Tail = nodeBeforePosition;
+
+                if (Head == nodeToDelete)
+                    Head = nodeBeforePosition;
+            }
+            else if (position == 0)
+            {
+                if (Lenght > 1)                
+                    Head = nodeToDelete.Next;                                    
+                else
+                {
+                    Head = null;
+                    Tail = null;
+                }
+            }
+
+            Lenght--;
+        }
+
         public void Display()
         {
-            Node<T>? actualNode = head;
+            Node<T>? actualNode = Head;
             while (actualNode != null)
             {
                 Console.WriteLine($"{actualNode.Element} --> ");
