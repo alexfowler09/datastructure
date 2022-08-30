@@ -54,7 +54,7 @@ namespace DataStructure.Tests.ListTests
         }
 
         [Fact]
-        public void Remove_WhenListContainsOneElementAtLeftAndNoOneAtRight_RemoveElement()
+        public void Remove_LastPositionWhenListContainsOneElementAtLeft_RemoveElement()
         {
             // arrange
             linkedList.Add(10);
@@ -72,7 +72,7 @@ namespace DataStructure.Tests.ListTests
         }
 
         [Fact]
-        public void Remove_WhenListContainsOneElementAtLeftAndOneElementAtRight_RemoveElement()
+        public void Remove_MiddlePositionWhenListContainsOneElementAtLeftAndOneElementAtRight_RemoveElement()
         {
             // arrange
             linkedList.Add(10);
@@ -93,7 +93,7 @@ namespace DataStructure.Tests.ListTests
         }
 
         [Fact]
-        public void Remove_WhenListContainsMoreThanOneElementAtLeftAndRight_RemoveElement()
+        public void Remove_MiddlePositionWhenListContainsMoreThanOneElementAtLeftAndRight_RemoveElement()
         {
             // arrange
             linkedList.Add(10);
