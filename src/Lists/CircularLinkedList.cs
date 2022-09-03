@@ -9,17 +9,16 @@
 
             if (IsEmpty())
             {
-                Head = node;
-                Tail = node;
+                Head = node;                
                 node.Next = node;
             }
             else
             {
                 node.Next = Tail!.Next;
-                Tail.Next = node;                
-                Tail = node;
+                Tail.Next = node;                                
             }
 
+            Tail = node;
             Lenght++;
         }
 
