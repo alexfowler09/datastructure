@@ -4,11 +4,11 @@ using Xunit;
 
 namespace DataStructure.Tests.ListTests
 {
-    public class LinkedListIsEmptyTest
+    public class ListIsEmptyTest
     {
         private readonly LinkedList<int> linkedList;
 
-        public LinkedListIsEmptyTest()
+        public ListIsEmptyTest()
         {
             linkedList = new LinkedList<int>();
         }

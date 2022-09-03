@@ -5,11 +5,11 @@ using Xunit;
 
 namespace DataStructure.Tests.ListTests
 {
-    public class LinkedListRemoveTest
+    public class RemoveTest
     {
         private readonly LinkedList<int> linkedList;
 
-        public LinkedListRemoveTest()
+        public RemoveTest()
         {
             linkedList = new LinkedList<int>();
         }

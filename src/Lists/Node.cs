@@ -11,5 +11,13 @@
             Element = element;
             Next = next;
         }
+
+        public static Node<T> CreateNodeWithAutoReference(T element)
+        {
+            var node = new Node<T>(element, null);
+            node.Next = node;
+
+            return node;
+        }
     }
 }

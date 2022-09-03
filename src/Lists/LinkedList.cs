@@ -1,21 +1,9 @@
 ﻿namespace Lists
 {
-    public class LinkedList<T> 
+    public sealed class LinkedList<T>  : BaseLinkedList<T>
         where T : struct
     {
-        public Node<T>? Head { get; private set; } = null;
-        public Node<T>? Tail { get; private set; } = null;
-
-        public int Lenght { get; private set; }        
-
-        public LinkedList()
-        {
-        }
-
-        public bool IsEmpty() =>
-            Lenght == 0 && Head == null && Tail == null;
-
-        public void Add(T element) 
+        public override void Add(T element) 
         {
             var node = new Node<T>(element, null);
             
@@ -28,7 +16,7 @@
             Lenght++;
         }
 
-        public void AddLeading(T element)
+        public override void AddLeading(T element)
         {
             var node = new Node<T>(element, null);
 
@@ -41,7 +29,7 @@
             Lenght++;
         }
 
-        public void Add(T element, int position)
+        public override void Add(T element, int position)
         {
             if (position > (Lenght - 1))
                 throw new IndexOutOfRangeException();
@@ -71,26 +59,9 @@
                 Tail = newNode.Next;
         }
 
-        public Node<T> GetNode(int position)
+        public override void Remove(int position)
         {
-            if (position > (Lenght - 1))
-                throw new IndexOutOfRangeException();
-
-            Node<T> node = Head!;
-
-            int i = 0;            
-            while (i < position)
-            {
-                node = node.Next!; 
-                i++;
-            }
-
-            return node;
-        }
-
-        public void Remove(int position)
-        {
-            if (IsEmpty() || (position > (Lenght -1)))
+            if (IsEmpty() || (position > (Lenght - 1)))
                 throw new IndexOutOfRangeException();
 
             var nodeToDelete = GetNode(position);            
@@ -120,14 +91,30 @@
             Lenght--;
         }
 
+        public override int Search(T element)
+        {
+            var index = 0;
+            var actualNode = Head;
+            while (actualNode != null)
+            {
+                if (actualNode.Element.Equals(element))
+                    return index;
+
+                actualNode = actualNode.Next;
+                index++;
+            }
+
+            return -1;
+        }
+
         public void Display()
         {
-            Node<T>? actualNode = Head;
+            var actualNode = Head;
             while (actualNode != null)
             {
                 Console.WriteLine($"{actualNode.Element} --> ");
                 actualNode = actualNode.Next;
             }
-        }
+        }        
     }
 }

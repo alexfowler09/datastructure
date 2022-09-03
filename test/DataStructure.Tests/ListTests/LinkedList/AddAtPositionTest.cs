@@ -5,11 +5,11 @@ using Xunit;
 
 namespace DataStructure.Tests.ListTests
 {
-    public class LinkedListAddAtPositionTest
+    public class AddAtPositionTest
     {
         private readonly LinkedList<int> linkedList;
 
-        public LinkedListAddAtPositionTest()
+        public AddAtPositionTest()
         {
             linkedList = new LinkedList<int>();
         }
